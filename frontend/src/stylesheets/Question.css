@@ -12,16 +12,28 @@
   width: 60%;
 }
 
+.categories-list ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
 .questions-list {
   flex-basis: 75%;
   text-align: center;
+}
+
+.questions-list div {
+  border-radius: 8px;
 }
 
 .Question-holder {
   padding: 10px 20px;
   border: 2px black solid;
   text-align: left;
-  margin: 7px;
+  margin: 8px;
 }
 
 .Question-status {
@@ -51,6 +63,11 @@
   color: white;
   padding: 3px 5px;
   margin-left: 0px !important;
+  cursor: pointer;
+}
+
+.show-answer:hover {
+  background-color: #0472e0;
 }
 
 span.page-num {
@@ -67,9 +84,10 @@ span.page-num.active {
 }
 
 img.category {
-  width: 30px;
+  width: 20px;
 }
 
 img.delete {
   width: 20px;
+  cursor: pointer;
 }

@@ -28,6 +28,11 @@
     align-self: center;
 }
 
+.button:hover {
+    background-color: #0472e0;
+    cursor: pointer;
+}
+
 div.button {
     margin-top: 20px;
     margin-left: calc(50% - 50px);
