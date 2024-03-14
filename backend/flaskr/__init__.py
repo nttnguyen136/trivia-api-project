@@ -24,12 +24,7 @@ def create_app(test_config=None):
 
         return response
 
-    """
-    @TODO:
-    Create an endpoint to handle GET requests
-    for all available categories.
-    """
-
+    # Get a list of categories.
     @app.route("/categories", methods=["GET"])
     def get_categories():
         categories = Category.query.all()
@@ -41,6 +36,7 @@ def create_app(test_config=None):
 
         return jsonify({"success": True, "categories": formatted_categories})
 
+    # Get a list of questions.
     @app.route("/questions", methods=["GET"])
     def get_questions():
         page = request.args.get("page", 1, type=int)
@@ -68,6 +64,7 @@ def create_app(test_config=None):
             }
         )
 
+    # Delete a question by question id
     @app.route("/questions/<int:question_id>", methods=["DELETE"])
     def delete_question(question_id):
 
@@ -89,6 +86,7 @@ def create_app(test_config=None):
             db.session.rollback()
             abort(500)  # Internal server error
 
+    # Create a question
     @app.route("/questions", methods=["POST"])
     def create_question():
         data = request.get_json()
@@ -127,6 +125,7 @@ def create_app(test_config=None):
             db.session.rollback()
             abort(500)  # Internal server error
 
+    # Search question
     @app.route("/questions/search", methods=["POST"])
     def search_questions():
         try:
@@ -157,6 +156,7 @@ def create_app(test_config=None):
         except Exception as e:
             abort(500)  # Internal server error
 
+    # Get questions by category
     @app.route("/categories/<int:category_id>/questions", methods=["GET"])
     def get_questions_by_category(category_id):
         category = Category.query.get(category_id)
@@ -175,6 +175,7 @@ def create_app(test_config=None):
             }
         )
 
+    # Get quizzes by category and previous questions
     @app.route("/quizzes", methods=["POST"])
     def play_quiz():
         data = request.get_json()
