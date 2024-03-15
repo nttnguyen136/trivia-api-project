@@ -128,14 +128,16 @@ def create_app(test_config=None):
     # Search question
     @app.route("/questions/search", methods=["POST"])
     def search_questions():
+
+        data = request.get_json()
+
+        # Validate required fields
+        if "searchTerm" not in data:
+            abort(400)  # Bad request
+
+        search_term = data["searchTerm"]
+
         try:
-            data = request.get_json()
-
-            # Validate required fields
-            if "searchTerm" not in data:
-                abort(400)  # Bad request
-
-            search_term = data["searchTerm"]
 
             # Search for questions
             questions = Question.query.filter(
