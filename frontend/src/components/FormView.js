@@ -8,8 +8,8 @@ class FormView extends Component {
     this.state = {
       question: '',
       answer: '',
-      difficulty: 1,
-      category: 1,
+      difficulty: '1',
+      category: '1',
       categories: [],
     };
   }
@@ -93,7 +93,7 @@ class FormView extends Component {
             <select name='category' onChange={this.handleChange}>
               {this.state.categories.map(({ type, id }) => {
                 return (
-                  <option key={id} value={type}>
+                  <option key={id} value={id}>
                     {type}
                   </option>
                 );
