@@ -36,6 +36,17 @@ Populate the database using the `trivia.psql` file provided. From the `backend` 
 psql trivia < trivia.psql
 ```
 
+### Create env file
+
+Create a .env file and copy it to `./backend`. Example: 
+```env
+DB_USER='postgres' 
+DB_PASSWORD='password'
+DB_NAME='trivia'
+DB_HOST='localhost'
+DB_PORT='5432'
+```
+
 ### Run the Server
 
 From within the `./src` directory first ensure you are working using your created virtual environment.
