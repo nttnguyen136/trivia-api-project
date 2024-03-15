@@ -79,7 +79,10 @@ def create_app(test_config=None):
             db.session.commit()
 
             return jsonify(
-                {"success": True, "message": "Question deleted successfully"}
+                {
+                    "success": True,
+                    "message": f"Question {question_id} deleted successfully",
+                }
             )
 
         except Exception as e:
